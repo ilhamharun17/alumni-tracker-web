@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pelacakan Alumni (Alumni Tracker)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #0056b3; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        .btn { background-color: #28a745; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+        .btn:hover { background-color: #218838; }
+        .badge-success { background-color: #28a745; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .badge-warning { background-color: #ffc107; color: black; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .badge-danger { background-color: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .badge-default { background-color: #6c757d; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Dashboard Pelacakan Alumni Publik</h2>
+    <p>Sistem ini menyimulasikan pencarian otomatis, ekstraksi sinyal identitas, dan disambiguasi kandidat dari berbagai platform publik (LinkedIn, Scholar, dll).</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Profil Target</th>
+                <th>Program Studi</th>
+                <th>Tahun Lulus</th>
+                <th>Status Pelacakan</th>
+                <th>Sinyal / Info Terbaru</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for al in alumni_data %}
+            <tr>
+                <td>{{ al.id }}</td>
+                <td><strong>{{ al.nama_asli }}</strong></td>
+                <td>{{ al.prodi }}</td>
+                <td>{{ al.tahun_lulus }}</td>
+                <td>
+                    {% if al.status == "Teridentifikasi" %}
+                        <span class="badge-success">{{ al.status }}</span>
+                    {% elif al.status == "Perlu Verifikasi Manual" %}
+                        <span class="badge-warning">{{ al.status }}</span>
+                    {% elif al.status == "Tidak Ditemukan" %}
+                        <span class="badge-danger">{{ al.status }}</span>
+                    {% else %}
+                        <span class="badge-default">{{ al.status }}</span>
+                    {% endif %}
+                </td>
+                <td><small>{{ al.info }}</small></td>
+                <td>
+                    <form method="POST" style="margin: 0;">
+                        <input type="hidden" name="alumni_id" value="{{ al.id }}">
+                        <button type="submit" class="btn">Lacak Sekarang</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
