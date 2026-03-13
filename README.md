@@ -3,7 +3,7 @@
 Proyek ini adalah implementasi sistem pelacakan jejak alumni melalui sumber publik. Sistem ini dilengkapi dengan algoritma agregasi data dan disambiguasi profil untuk menentukan *confidence score* dari pencocokan identitas kandidat di internet.
 
 ## Informasi Rilis
-- **Link Github Source Code:** `[MASUKKAN LINK REPOSITORY GITHUB ANDA DI SINI]`
+- **Link Github Source Code:** `https://github.com/ilhamharun17/alumni-tracker-web.git`
 - **Link Publish Web:** `[MASUKKAN LINK WEBSITE YANG SUDAH DI-DEPLOY DI SINI]`
 
 ## Tabel Pengujian Aplikasi (Quality Testing)
