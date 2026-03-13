@@ -4,7 +4,7 @@ Proyek ini adalah implementasi sistem pelacakan jejak alumni melalui sumber publ
 
 ## Informasi Rilis
 - **Link Github Source Code:** `https://github.com/ilhamharun17/alumni-tracker-web.git`
-- **Link Publish Web:** `[MASUKKAN LINK WEBSITE YANG SUDAH DI-DEPLOY DI SINI]`
+- **Link Publish Web:** `https://alumni-tracker-web.onrender.com`
 
 ## Tabel Pengujian Aplikasi (Quality Testing)
 
